@@ -8,6 +8,8 @@ const depositShow = document.getElementById('show-deposit');
 const withdrawShow = document.getElementById('show-withdraw');
 const balanceShow = document.getElementById('show-balance');
 
+
+// deposit calculation logic
 depositBtn.addEventListener('click', function () {
     // Deposit showing code
     const currentValue = depositShow.innerText;
@@ -24,4 +26,26 @@ depositBtn.addEventListener('click', function () {
     let currentBalanceMoney = currentBalance.slice(1, len);
     currentBalanceMoney = parseInt(currentBalanceMoney) + parseInt(depositInput);
     balanceShow.innerText = '$' + currentBalanceMoney;
+    deposit.value = '';
+})
+
+
+// withdraw calculation logic
+withdrawBtn.addEventListener('click', function () {
+    const currentValue = withdrawShow.innerText;
+    // console.log(currentValue);
+    const sz = currentValue.length;
+    let currentMoney = currentValue.slice(1, sz);
+    const withdrawInput = withdraw.value;
+    currentMoney = parseInt(currentMoney) + parseInt(withdrawInput);
+    withdrawShow.innerText = '$' + currentMoney;
+
+    // Balance showing code
+    const currentBalance = balanceShow.innerText;
+    // console.log(currentBalance);
+    const len = currentBalance.length;
+    let currentBalanceMoney = currentBalance.slice(1, len);
+    currentBalanceMoney = parseInt(currentBalanceMoney) - parseInt(withdrawInput);
+    balanceShow.innerText = '$' + currentBalanceMoney;
+    withdraw.value = '';
 })
