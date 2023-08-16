@@ -8,7 +8,6 @@ const depositShow = document.getElementById('show-deposit');
 const withdrawShow = document.getElementById('show-withdraw');
 const balanceShow = document.getElementById('show-balance');
 
-
 // deposit calculation logic
 depositBtn.addEventListener('click', function () {
     // Deposit showing code
@@ -29,11 +28,10 @@ depositBtn.addEventListener('click', function () {
     deposit.value = '';
 })
 
-
 // withdraw calculation logic
 withdrawBtn.addEventListener('click', function () {
+    // Withdraw showing code
     const currentValue = withdrawShow.innerText;
-    // console.log(currentValue);
     const sz = currentValue.length;
     let currentMoney = currentValue.slice(1, sz);
     const withdrawInput = withdraw.value;
@@ -42,7 +40,6 @@ withdrawBtn.addEventListener('click', function () {
 
     // Balance showing code
     const currentBalance = balanceShow.innerText;
-    // console.log(currentBalance);
     const len = currentBalance.length;
     let currentBalanceMoney = currentBalance.slice(1, len);
     currentBalanceMoney = parseInt(currentBalanceMoney) - parseInt(withdrawInput);
